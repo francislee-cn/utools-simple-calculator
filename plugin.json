@@ -3,7 +3,7 @@
   "pluginName": "简易计算器",
   "description": "简易计算器",
   "author": "Francis Lee <hi@francislee.cn>",
-  "homepage": "https://github.com/Francis-Lee-CN/utools-simple-calculator",
+  "homepage": "https://github.com/francislee-cn/utools-simple-calculator",
   "preload": "preload.js",
   "logo": "logo.png",
   "features": [

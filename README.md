@@ -4,4 +4,4 @@
 
 [![预览](https://s3.ax1x.com/2020/12/07/Dznkvj.gif)](https://imgchr.com/i/Dznkvj)
 
-[Issues](https://github.com/Francis-Lee-CN/utools-simple-calculator/issues)
+[Issues](https://github.com/francislee-cn/utools-simple-calculator/issues)
