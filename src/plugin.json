@@ -1,8 +1,8 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "pluginName": "简易计算器",
   "description": "简易计算器",
-  "author": "Francis Lee <hi@francislee.cn>",
+  "author": "Francis_Lee",
   "homepage": "https://github.com/francislee-cn/utools-simple-calculator",
   "preload": "preload.js",
   "logo": "logo.png",
