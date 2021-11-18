@@ -1,7 +1,7 @@
 {
-  "version": "1.0.3",
+  "version": "1.0.4",
   "pluginName": "简易计算器",
-  "description": "简易计算器",
+  "description": "简便快捷的计算器",
   "author": "Francis_Lee",
   "homepage": "https://github.com/francislee-cn/utools-simple-calculator",
   "preload": "preload.js",
@@ -9,8 +9,10 @@
   "features": [
     {
       "code": "calculator",
-      "explain": "计算表达式",
+      "explain": "计算算式",
       "cmds": [
+        "calculator",
+        "简易计算器",
         {
           "type": "regex",
           "label": "简易计算器",
