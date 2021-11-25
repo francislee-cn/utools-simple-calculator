@@ -1,13 +1,7 @@
-
-Number.prototype.toFixed = function toFixed(s) {
-    let times = Math.pow(10, s)
-    let des = this * times + 0.5
-    des = parseInt(des, 10) / times
-    return des + ''
-}
+const calc = require('./calc.min.js')
 
 function isFormula(str){
-    return /^(?:\(*-?\d+(\.\d+)?\)* ?[+\-*/%] ?)+\(*-?\d+(\.\d+)?\)*$/.test(str)
+    return /^(?:\(*-?\d+(\.\d+)?\)* ?[+\-*/] ?)+\(*-?\d+(\.\d+)?\)*$/.test(str)
 }
 
 window.exports = {
@@ -18,7 +12,7 @@ window.exports = {
                 if (!isFormula(action.payload)) {
                     return
                 }
-                let num = eval(action.payload).toFixed(4);
+                let num = calc(action.payload);
                 callbackSetList([{
                     title: num,
                     logo: "logo.png",
@@ -35,7 +29,7 @@ window.exports = {
                 if (!isFormula(searchWord)) {
                     return
                 }
-                let num = eval(searchWord).toFixed(4);
+                let num = calc(searchWord);
                 callbackSetList([{
                     title: num,
                     logo: "logo.png",
