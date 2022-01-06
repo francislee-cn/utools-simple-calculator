@@ -1,9 +1,8 @@
-const calc = require('./calc.min.js')
+const math = require('./math.min.js')
 
 function isFormula(str){
-    return /^(?:\(*-?\d+(\.\d+)?\)* ?[+\-*/] ?)+\(*-?\d+(\.\d+)?\)*$/.test(str)
+    return /^(?:\(*-?\d+(\.\d+)?\)* ?[+\-*/%^] ?)+\(*-?\d+(\.\d+)?\)*$/.test(str)
 }
-
 window.exports = {
     "calculator": {
         mode: "list",
@@ -12,29 +11,52 @@ window.exports = {
                 if (!isFormula(action.payload)) {
                     return
                 }
-                let num = calc(action.payload);
-                callbackSetList([{
-                    title: num,
-                    logo: "logo.png",
-                    description: action.payload + " = " + num
-                }])
+                let num = math.format(math.evaluate(action.payload),{precision: 14});
+                callbackSetList([
+                    {
+                        title: num,
+                        logo: "logo.png",
+                        description: action.payload + " = " + num
+                    },
+                    {
+                        next: true,
+                        title: num,
+                        logo: "logo.png",
+                        description: "带入结果，继续计算"
+                    },
+                ])
             },
             select: (action, itemData, callbackSetList) => {
-                utools.copyText(itemData.title)
-                window.utools.hideMainWindow()
-                window.utools.outPlugin()
+                if (itemData.next) {
+                    utools.setSubInputValue(itemData.title)
+                } else {
+                    utools.copyText(itemData.title)
+                    window.utools.hideMainWindow()
+                    window.utools.outPlugin()
+                }
             },
             placeholder: "输入算式",
             search: (action, searchWord, callbackSetList) => {
-                if (!isFormula(searchWord)) {
-                    return
+                if (!isNaN(searchWord)){
+                    return;
                 }
-                let num = calc(searchWord);
-                callbackSetList([{
-                    title: num,
-                    logo: "logo.png",
-                    description: searchWord + " = " + num
-                }])
+                let num = math.format(math.evaluate(searchWord),{precision: 14});
+                if (isNaN(num)) {
+                    return;
+                }
+                callbackSetList([
+                    {
+                        title: num,
+                        logo: "logo.png",
+                        description: searchWord + " = " + num
+                    },
+                    {
+                        next: true,
+                        title: num,
+                        logo: "logo.png",
+                        description: "带入结果，继续计算"
+                    }
+                ])
             },
         }
     }
