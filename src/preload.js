@@ -11,7 +11,7 @@ window.exports = {
                 if (!isFormula(action.payload)) {
                     return
                 }
-                let num = math.format(math.evaluate(action.payload),{precision: 14});
+                let num = math.format(math.evaluate(action.payload),{precision: 16,upperExp: 16});
                 callbackSetList([
                     {
                         title: num,
@@ -40,7 +40,7 @@ window.exports = {
                 if (!isNaN(searchWord)){
                     return;
                 }
-                let num = math.format(math.evaluate(searchWord),{precision: 14});
+                let num = math.format(math.evaluate(searchWord),{precision: 16, upperExp: 16});
                 if (isNaN(num)) {
                     return;
                 }
