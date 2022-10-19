@@ -1,5 +1,7 @@
 const math = require('./math.min.js')
 
+math.config({number: 'BigNumber'})
+
 function isFormula(str){
     return /^(?:\(*-?\d+(\.\d+)?\)* ?[+\-*/%^] ?)+\(*-?\d+(\.\d+)?\)*$/.test(str)
 }
