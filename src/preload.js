@@ -26,6 +26,11 @@ window.exports = {
                         logo: "logo.png",
                         description: "带入结果，继续计算"
                     },
+                    {
+                        title: action.payload + "=" + num,
+                        logo: "logo.png",
+                        description: "复制完整算式"
+                    },
                 ])
             },
             select: (action, itemData, callbackSetList) => {
